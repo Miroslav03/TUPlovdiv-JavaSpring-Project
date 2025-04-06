@@ -1,13 +1,13 @@
-package com.yourcompany.server.services;
+package com.example.server.services;
 
-import com.yourcompany.server.models.Client;
-import com.yourcompany.server.models.Freelancer;
-import com.yourcompany.server.models.offers.ClientOffer;
-import com.yourcompany.server.models.offers.FreelancerOffer;
-import com.yourcompany.server.repositories.ClientOfferRepository;
-import com.yourcompany.server.repositories.FreelancerOfferRepository;
-import com.yourcompany.server.repositories.ClientRepository;
-import com.yourcompany.server.repositories.FreelancerRepository;
+import com.example.server.models.Client;
+import com.example.server.models.Freelancer;
+import com.example.server.models.offers.ClientOffer;
+import com.example.server.models.offers.FreelancerOffer;
+import com.example.server.repositories.ClientOfferRepository;
+import com.example.server.repositories.FreelancerOfferRepository;
+import com.example.server.repositories.ClientRepository;
+import com.example.server.repositories.FreelancerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -28,7 +28,7 @@ public class OfferService {
     @Autowired
     private FreelancerRepository freelancerRepository;
 
-    // Create a ClientOffer and update the client's createdJobs
+    // --- Client Offer Methods ---
     public ClientOffer createClient(String id, ClientOffer offerData) {
         Optional<Client> clientOpt = clientRepository.findById(id);
         if (!clientOpt.isPresent()) {
@@ -68,14 +68,6 @@ public class OfferService {
         return clientOfferRepository.save(offer);
     }
 
-    public List<FreelancerOffer> getAllFreelancer() {
-        return freelancerOfferRepository.findAll();
-    }
-
-    public List<FreelancerOffer> getAllCategoryFreelancer(String category) {
-        return freelancerOfferRepository.findByIndustry(category);
-    }
-
     public List<ClientOffer> getAllClients() {
         return clientOfferRepository.findAll();
     }
@@ -84,7 +76,6 @@ public class OfferService {
         return clientOfferRepository.findByIndustry(category);
     }
 
-    // For a freelancer applying to a client offer:
     public ClientOffer applyFreelancer(String userId, String offerId) {
         ClientOffer offer = clientOfferRepository.findById(offerId)
                 .orElseThrow(() -> new RuntimeException("Offer not found"));
@@ -94,7 +85,6 @@ public class OfferService {
         return clientOfferRepository.save(offer);
     }
 
-    // Update freelancer's applied offers (adds the offer to freelancer's applied list)
     public Freelancer updateAppliedOffersFreelancer(String idUser, String idOffer) {
         Freelancer freelancer = freelancerRepository.findById(idUser)
                 .orElseThrow(() -> new RuntimeException("Freelancer not found"));
@@ -104,7 +94,6 @@ public class OfferService {
         return freelancerRepository.save(freelancer);
     }
 
-    // Decline freelancer from a client offer
     public ClientOffer declineFreelancer(String idUser, String idOffer) {
         ClientOffer offer = clientOfferRepository.findById(idOffer)
                 .orElseThrow(() -> new RuntimeException("Offer not found"));
@@ -112,5 +101,55 @@ public class OfferService {
         return clientOfferRepository.save(offer);
     }
 
-    // (Other methods for freelancer offers and sending messages can be added similarly.)
+    // --- Freelancer Offer Methods ---
+    public FreelancerOffer createFreelancer(String freelancerId, FreelancerOffer offerData) {
+        Optional<Freelancer> freelancerOpt = freelancerRepository.findById(freelancerId);
+        if (!freelancerOpt.isPresent()) {
+            throw new RuntimeException("Freelancer not found");
+        }
+        FreelancerOffer freelancerOffer = new FreelancerOffer();
+        freelancerOffer.setOwner(freelancerOpt.get());
+        freelancerOffer.setTitle(offerData.getTitle());
+        freelancerOffer.setIndustry(offerData.getIndustry());
+        freelancerOffer.setDescription(offerData.getDescription());
+        freelancerOffer.setImgUrl(offerData.getImgUrl());
+        return freelancerOfferRepository.save(freelancerOffer);
+    }
+
+    public FreelancerOffer getOneFreelancer(String offerId) {
+        Optional<FreelancerOffer> offerOpt = freelancerOfferRepository.findById(offerId);
+        return offerOpt.orElse(null);
+    }
+
+    public FreelancerOffer editFreelancer(String offerId, FreelancerOffer newData) {
+        FreelancerOffer offer = freelancerOfferRepository.findById(offerId)
+                .orElseThrow(() -> new RuntimeException("Offer not found"));
+        offer.setTitle(newData.getTitle());
+        offer.setIndustry(newData.getIndustry());
+        offer.setDescription(newData.getDescription());
+        offer.setImgUrl(newData.getImgUrl());
+        return freelancerOfferRepository.save(offer);
+    }
+
+    public void deleteFreelancer(String offerId) {
+        freelancerOfferRepository.deleteById(offerId);
+    }
+
+    public List<FreelancerOffer> getAllFreelancer() {
+        return freelancerOfferRepository.findAll();
+    }
+
+    public List<FreelancerOffer> getAllCategoryFreelancer(String category) {
+        return freelancerOfferRepository.findByIndustry(category);
+    }
+
+    public void sendMessageFreelancer(String userId, String offerId, String message) {
+        FreelancerOffer offer = getOneFreelancer(offerId);
+        if (offer == null) {
+            throw new RuntimeException("Offer not found");
+        }
+        // Implement message logic—e.g., add a message record to the offer.
+        offer.addMessage(userId, message); // Ensure FreelancerOffer has an addMessage() method
+        freelancerOfferRepository.save(offer);
+    }
 }

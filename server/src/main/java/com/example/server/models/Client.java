@@ -1,5 +1,6 @@
-package com.yourcompany.server.models;
+package com.example.server.models;
 
+import com.example.server.models.offers.ClientOffer;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;

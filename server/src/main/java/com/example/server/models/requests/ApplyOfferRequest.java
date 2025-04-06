@@ -1,6 +1,6 @@
-package com.yourcompany.server.models.requests;
+package com.example.server.models.requests;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public class ApplyOfferRequest {
 

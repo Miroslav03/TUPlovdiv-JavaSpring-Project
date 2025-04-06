@@ -1,15 +1,16 @@
-package com.yourcompany.server.controllers;
+package com.example.server.controllers;
 
-import com.yourcompany.server.requests.DescriptionRequest;
-import com.yourcompany.server.requests.LoginRequest;
-import com.yourcompany.server.requests.TokenRequest;
-import com.yourcompany.server.responses.UserResponse;
-import com.yourcompany.server.services.UserService;
+import com.example.server.requests.DescriptionRequest;
+import com.example.server.requests.LoginRequest;
+import com.example.server.requests.TokenRequest;
+import com.example.server.responses.UserResponse;
+import com.example.server.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/users")
 public class UserController {
 

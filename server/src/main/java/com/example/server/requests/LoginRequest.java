@@ -1,6 +1,6 @@
-package com.yourcompany.server.requests;
+package com.example.server.requests;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public class LoginRequest {
     @NotNull

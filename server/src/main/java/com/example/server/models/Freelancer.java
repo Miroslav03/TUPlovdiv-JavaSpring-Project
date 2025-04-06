@@ -1,9 +1,10 @@
-package com.yourcompany.server.models;
+package com.example.server.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import java.util.List;
+import com.example.server.models.offers.ClientOffer;
 
 @Document(collection = "freelancers")
 public class Freelancer {

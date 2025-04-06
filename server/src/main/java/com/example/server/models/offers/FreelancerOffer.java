@@ -1,11 +1,12 @@
-package com.yourcompany.server.models.offers;
+package com.example.server.models.offers;
 
-import com.yourcompany.server.models.Freelancer;
+import com.example.server.models.Freelancer;
+import com.example.server.models.Client;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DBRef;
-
-import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "freelancerOffers")
@@ -29,10 +30,10 @@ public class FreelancerOffer {
     @DBRef
     private Freelancer owner;
 
-    @DBRef
-    private List<com.yourcompany.server.models.Client> signed;
+    // For example, you can store messages as simple strings
+    private List<String> messages;
 
-    // Getters and setters
+    // Getters and setters for fields...
     public String getId() {
         return id;
     }
@@ -69,10 +70,19 @@ public class FreelancerOffer {
     public void setOwner(Freelancer owner) {
         this.owner = owner;
     }
-    public List<com.yourcompany.server.models.Client> getSigned() {
-        return signed;
+    public List<String> getMessages() {
+        return messages;
     }
-    public void setSigned(List<com.yourcompany.server.models.Client> signed) {
-        this.signed = signed;
+    public void setMessages(List<String> messages) {
+        this.messages = messages;
+    }
+    
+    // Add the missing addMessage method:
+    public void addMessage(String userId, String message) {
+        if (this.messages == null) {
+            this.messages = new ArrayList<>();
+        }
+        // For simplicity, store a concatenated string (or create a Message class if you prefer)
+        this.messages.add("From " + userId + ": " + message);
     }
 }

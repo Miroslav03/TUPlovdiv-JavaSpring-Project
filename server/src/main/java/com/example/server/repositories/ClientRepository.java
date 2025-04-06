@@ -1,6 +1,6 @@
-package com.yourcompany.server.repositories;
+package com.example.server.repositories;
 
-import com.yourcompany.server.models.Client;
+import com.example.server.models.Client;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 import java.util.Optional;

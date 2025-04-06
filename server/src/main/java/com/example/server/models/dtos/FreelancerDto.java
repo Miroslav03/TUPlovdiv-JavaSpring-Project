@@ -1,4 +1,4 @@
-package com.yourcompany.server.models.dtos;
+package com.example.server.models.dtos;
 
 public class FreelancerDto {
     private String name;

@@ -1,15 +1,14 @@
-package com.yourcompany.server.controllers;
+package com.example.server.controllers;
 
-import com.yourcompany.server.constants.Paths;
-import com.yourcompany.server.models.FreelancerOffer;
-import com.yourcompany.server.requests.ApplyOfferRequest;
-import com.yourcompany.server.requests.OfferCreationRequest;
-import com.yourcompany.server.requests.SendMessageRequest;
-import com.yourcompany.server.services.OfferService;
+import com.example.server.constants.Paths;
+import com.example.server.models.offers.FreelancerOffer;
+import com.example.server.models.requests.ApplyOfferRequest;
+import com.example.server.models.requests.FreelancerOfferCreationRequest;
+import com.example.server.requests.SendMessageRequest;
+import com.example.server.services.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -44,7 +43,7 @@ public class OfferFreelancerController {
     // POST /offers/create
     // (Requires isFreelancer – implement using Spring Security or method-level security)
     @PostMapping(Paths.Offers.CREATE)
-    public ResponseEntity<?> createFreelancerOffer(@RequestBody OfferCreationRequest request) {
+    public ResponseEntity<?> createFreelancerOffer(@RequestBody FreelancerOfferCreationRequest request) {
         try {
             offerService.createFreelancer(request.getId(), request.getData());
             return ResponseEntity.ok("{\"status\": \"Success\"}");
@@ -106,7 +105,7 @@ public class OfferFreelancerController {
     @DeleteMapping(Paths.Offers.DECLINE)
     public ResponseEntity<?> declineOffer(@RequestBody ApplyOfferRequest request) {
         try {
-            offerService.declineClinet(request.getUserId(), request.getOfferId());
+            offerService.declineFreelancer(request.getUserId(), request.getOfferId());
             return ResponseEntity.ok("{\"status\": \"Success\"}");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error declining");

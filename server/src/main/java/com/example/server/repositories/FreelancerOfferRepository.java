@@ -1,6 +1,6 @@
-package com.yourcompany.server.repositories;
+package com.example.server.repositories;
 
-import com.yourcompany.server.models.offers.FreelancerOffer;
+import com.example.server.models.offers.FreelancerOffer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

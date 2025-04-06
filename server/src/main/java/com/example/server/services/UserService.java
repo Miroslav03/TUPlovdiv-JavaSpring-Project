@@ -1,13 +1,13 @@
-package com.yourcompany.server.services;
+package com.example.server.services;
 
-import com.yourcompany.server.models.Client;
-import com.yourcompany.server.models.Freelancer;
-import com.yourcompany.server.repositories.ClientRepository;
-import com.yourcompany.server.repositories.FreelancerRepository;
-import com.yourcompany.server.requests.LoginRequest;
-import com.yourcompany.server.responses.UserResponse;
-import com.yourcompany.server.utils.JwtUtil;
-import com.yourcompany.server.utils.TokenBlacklist;
+import com.example.server.models.Client;
+import com.example.server.models.Freelancer;
+import com.example.server.repositories.ClientRepository;
+import com.example.server.repositories.FreelancerRepository;
+import com.example.server.requests.LoginRequest;
+import com.example.server.responses.UserResponse;
+import com.example.server.utils.JwtUtil;
+import com.example.server.utils.TokenBlacklist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

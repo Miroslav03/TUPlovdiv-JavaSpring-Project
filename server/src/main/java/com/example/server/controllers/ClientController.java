@@ -1,16 +1,17 @@
-package com.yourcompany.server.controllers;
+package com.example.server.controllers;
 
-import com.yourcompany.server.constants.Paths;
-import com.yourcompany.server.models.Client;
-import com.yourcompany.server.models.dtos.ClientDto;
-import com.yourcompany.server.models.dtos.ClientResponseDto;
-import com.yourcompany.server.services.ClientService;
+import com.example.server.constants.Paths;
+import com.example.server.models.Client;
+import com.example.server.models.dtos.ClientDto;
+import com.example.server.models.dtos.ClientResponseDto;
+import com.example.server.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173") 
 @RequestMapping("/auth/client")
 public class ClientController {
 

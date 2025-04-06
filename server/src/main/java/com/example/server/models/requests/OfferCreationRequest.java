@@ -1,7 +1,7 @@
-package com.yourcompany.server.models.requests;
+package com.example.server.models.requests;
 
-import com.yourcompany.server.models.offers.ClientOffer;
-import javax.validation.constraints.NotNull;
+import com.example.server.models.offers.ClientOffer;
+import jakarta.validation.constraints.NotNull;
 
 public class OfferCreationRequest {
 

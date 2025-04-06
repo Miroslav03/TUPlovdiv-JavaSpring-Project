@@ -1,16 +1,17 @@
-package com.yourcompany.server.controllers;
+package com.example.server.controllers;
 
-import com.yourcompany.server.constants.Paths;
-import com.yourcompany.server.models.Freelancer;
-import com.yourcompany.server.models.dtos.FreelancerDto;
-import com.yourcompany.server.models.dtos.FreelancerResponseDto;
-import com.yourcompany.server.services.FreelancerService;
+import com.example.server.constants.Paths;
+import com.example.server.models.Freelancer;
+import com.example.server.models.dtos.FreelancerDto;
+import com.example.server.models.dtos.FreelancerResponseDto;
+import com.example.server.services.FreelancerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/auth/freelancer")
 public class FreelancerController {
 

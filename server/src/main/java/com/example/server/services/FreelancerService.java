@@ -1,10 +1,10 @@
-package com.yourcompany.server.services;
+package com.example.server.services;
 
-import com.yourcompany.server.models.Freelancer;
-import com.yourcompany.server.models.dtos.FreelancerDto;
-import com.yourcompany.server.models.dtos.FreelancerResponseDto;
-import com.yourcompany.server.repositories.FreelancerRepository;
-import com.yourcompany.server.utils.JwtUtil;
+import com.example.server.models.Freelancer;
+import com.example.server.models.dtos.FreelancerDto;
+import com.example.server.models.dtos.FreelancerResponseDto;
+import com.example.server.repositories.FreelancerRepository;
+import com.example.server.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

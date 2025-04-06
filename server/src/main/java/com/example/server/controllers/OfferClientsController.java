@@ -1,10 +1,10 @@
-package com.yourcompany.server.controllers;
+package com.example.server.controllers;
 
-import com.yourcompany.server.constants.Paths;
-import com.yourcompany.server.models.offers.ClientOffer;
-import com.yourcompany.server.models.requests.ApplyOfferRequest;
-import com.yourcompany.server.models.requests.OfferCreationRequest;
-import com.yourcompany.server.services.OfferService;
+import com.example.server.constants.Paths;
+import com.example.server.models.offers.ClientOffer;
+import com.example.server.models.requests.ApplyOfferRequest;
+import com.example.server.models.requests.OfferCreationRequest;
+import com.example.server.services.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

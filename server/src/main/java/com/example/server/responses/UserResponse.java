@@ -1,4 +1,4 @@
-package com.yourcompany.server.responses;
+package com.example.server.responses;
 
 public class UserResponse {
     private String id;

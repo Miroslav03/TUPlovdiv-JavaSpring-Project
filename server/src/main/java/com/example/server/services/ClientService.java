@@ -1,14 +1,15 @@
-package com.yourcompany.server.services;
+package com.example.server.services;
 
-import com.yourcompany.server.models.Client;
-import com.yourcompany.server.models.dtos.ClientDto;
-import com.yourcompany.server.models.dtos.ClientResponseDto;
-import com.yourcompany.server.repositories.ClientRepository;
+import com.example.server.models.Client;
+import com.example.server.models.dtos.ClientDto;
+import com.example.server.models.dtos.ClientResponseDto;
+import com.example.server.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import com.example.server.utils.JwtUtil;
 
 @Service
 public class ClientService {

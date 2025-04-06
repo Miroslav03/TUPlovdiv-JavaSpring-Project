@@ -1,4 +1,4 @@
-package com.yourcompany.server.utils;
+package com.example.server.utils;
 
 import org.springframework.dao.DuplicateKeyException;
 

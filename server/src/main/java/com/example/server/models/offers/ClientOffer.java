@@ -1,11 +1,11 @@
-package com.yourcompany.server.models.offers;
+package com.example.server.models.offers;
 
-import com.yourcompany.server.models.Client;
+import com.example.server.models.Client;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Document(collection = "clientOffers")
@@ -30,7 +30,7 @@ public class ClientOffer {
     private Client owner;
 
     @DBRef
-    private List<com.yourcompany.server.models.Freelancer> applied;
+    private List<com.example.server.models.Freelancer> applied;
 
     // Getters and setters
     public String getId() {
@@ -69,10 +69,10 @@ public class ClientOffer {
     public void setOwner(Client owner) {
         this.owner = owner;
     }
-    public List<com.yourcompany.server.models.Freelancer> getApplied() {
+    public List<com.example.server.models.Freelancer> getApplied() {
         return applied;
     }
-    public void setApplied(List<com.yourcompany.server.models.Freelancer> applied) {
+    public void setApplied(List<com.example.server.models.Freelancer> applied) {
         this.applied = applied;
     }
 }
