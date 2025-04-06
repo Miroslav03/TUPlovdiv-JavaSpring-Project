@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "SkillfindApplication",
+            "request": "launch",
+            "mainClass": "SkillfindApplication",
+            "projectName": "pizzanation"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${file}",
+            "cwd": "${workspaceRoot}",
+            "outputCapture": "std"
+        }
+    ]
+}
