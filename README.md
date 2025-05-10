@@ -22,7 +22,8 @@ Key Features:
 
 Before you begin, ensure you have met the following requirements:
 
-    Node.js and npm installed
+    Java 17 or higher installed and JAVA_HOME environment variable configured.
+    Maven installed globally, or use the included Maven Wrapper (mvnw / mvnw.cmd).
     
 Built with
 
@@ -38,9 +39,6 @@ Run Application
 
 Run Server
 
-    Java 17 or higher installed and JAVA_HOME environment variable configured.
-    Maven installed globally, or use the included Maven Wrapper (mvnw / mvnw.cmd).
-    
     Open terminal:
         cd Server 
         mvn clean package
